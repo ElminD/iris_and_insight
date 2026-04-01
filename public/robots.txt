@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://irisandinsight.com/sitemap.xml

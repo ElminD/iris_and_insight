@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone:*)",
+      "Bash(npm create:*)",
+      "Bash(cp -r /tmp/iris-temp/* /c/Users/didic/repos/iris_and_insight/ && cp /tmp/iris-temp/.gitignore /c/Users/didic/repos/iris_and_insight/ 2>/dev/null; rm -rf /tmp/iris-temp)",
+      "Bash(npm install:*)",
+      "Bash(chmod +x C:/Users/didic/repos/iris_and_insight/deploy.sh)",
+      "Bash(rm -f src/vite-env.d.ts 2>/dev/null; npm run build 2>&1)",
+      "Bash(timeout 5 npm run dev 2>&1 || true)",
+      "Bash(for file:*)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/didic/repos/iris_and_insight/**)",
+      "Bash(done)",
+      "Bash(/tmp/verify_imports.txt:*)",
+      "Read(//tmp/**)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vite:*)"
+    ]
+  }
+}
