@@ -113,12 +113,6 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          {/* Placeholder */}
-          <div className="mt-8 rounded-lg border-2 border-dashed border-brand-gray p-6 text-center">
-            <p className="font-body text-sm text-brand-gray italic">
-              Content needed: insurance info, pricing details.
-            </p>
-          </div>
         </div>
       </section>
     </>

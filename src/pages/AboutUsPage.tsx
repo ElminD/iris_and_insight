@@ -48,12 +48,6 @@ export default function AboutUsPage() {
             ))}
           </div>
 
-          {/* Placeholder block */}
-          <div className="mt-10 rounded-lg border-2 border-dashed border-brand-gray p-6 text-center">
-            <p className="font-body text-sm text-brand-gray italic">
-              Additional content needed: certification details, credentials, insurance information.
-            </p>
-          </div>
         </div>
       </section>
     </>

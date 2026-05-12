@@ -48,12 +48,6 @@ export default function ContactUsPage() {
                 </div>
               </div>
 
-              {/* Placeholder */}
-              <div className="mt-8 rounded-lg border-2 border-dashed border-brand-gray p-4 text-center">
-                <p className="font-body text-xs text-brand-gray italic">
-                  Contact details pending from client.
-                </p>
-              </div>
             </Card>
           </div>
         </div>
