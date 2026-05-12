@@ -1,5 +1,5 @@
 import kelseyImg from '../assets/images/people/Kelsey Finch.jpg';
-import sareenaImg from '../assets/images/people/bio pic.jpg';
+import sareenaImg from '../assets/images/people/Sareena.jpg';
 
 export interface TeamMember {
   name: string;
