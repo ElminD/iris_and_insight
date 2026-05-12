@@ -1,4 +1,4 @@
-import heroImg from '../../assets/images/scenic/Horses in pasture.jpg';
+import heroImg from '../../assets/images/scenic/Horses in pasture.webp';
 
 export default function Hero() {
   return (
@@ -11,6 +11,10 @@ export default function Hero() {
               src={heroImg}
               alt="Horses in pasture at Iris + Insight"
               className="w-full h-full object-cover"
+              fetchPriority="high"
+              loading="eager"
+              width={900}
+              height={1200}
             />
           </div>
         </div>

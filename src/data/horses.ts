@@ -1,8 +1,8 @@
-import catImg from '../assets/images/horses/Cat.jpg';
-import ginnyImg from '../assets/images/horses/Ginny.jpg';
-import greyImg from '../assets/images/horses/Grey.jpg';
-import boomerImg from '../assets/images/horses/Boomer_JR.jpg';
-import bodieImg from '../assets/images/horses/Bodie the Goatie.jpg';
+import catImg from '../assets/images/horses/Cat.webp';
+import ginnyImg from '../assets/images/horses/Ginny.webp';
+import greyImg from '../assets/images/horses/Grey.webp';
+import boomerImg from '../assets/images/horses/Boomer_JR.webp';
+import bodieImg from '../assets/images/horses/Bodie the Goatie.webp';
 
 export interface Horse {
   name: string;

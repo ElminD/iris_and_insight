@@ -28,6 +28,9 @@ export default function AboutUsPage() {
                     src={member.photo}
                     alt={member.name}
                     className="h-36 w-36 shrink-0 rounded-full object-cover border-2 border-brand-gray-light"
+                    width={144}
+                    height={144}
+                    loading="lazy"
                     style={member.imagePosition ? { objectPosition: member.imagePosition } : undefined}
                   />
                   <div>

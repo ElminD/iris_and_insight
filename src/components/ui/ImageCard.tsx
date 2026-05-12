@@ -17,6 +17,8 @@ export default function ImageCard({ imageSrc, imageAlt, imagePosition, title, su
           alt={imageAlt}
           loading="lazy"
           className="w-full aspect-[4/3] object-cover"
+          width={800}
+          height={600}
           style={imagePosition ? { objectPosition: imagePosition } : undefined}
         />
       ) : (
