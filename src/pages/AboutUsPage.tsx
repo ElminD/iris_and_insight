@@ -24,18 +24,23 @@ export default function AboutUsPage() {
             {team.map((member) => (
               <Card key={member.name}>
                 <div className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-6">
-                  {/* Circular photo placeholder */}
-                  <div className="h-20 w-20 shrink-0 rounded-full bg-brand-gray-light border-2 border-dashed border-brand-gray flex items-center justify-center">
-                    <span className="text-brand-charcoal-muted font-body text-[10px]">Photo</span>
-                  </div>
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="h-20 w-20 shrink-0 rounded-full object-cover border-2 border-brand-gray-light"
+                  />
                   <div>
                     <h3 className="font-display text-xl font-medium text-brand-charcoal">{member.name}</h3>
                     <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal mt-1">
                       {member.role}
                     </p>
-                    <p className={`font-body text-sm leading-relaxed mt-3 ${member.placeholder ? 'italic text-brand-gray' : 'text-brand-charcoal-muted'}`}>
-                      {member.bio}
-                    </p>
+                    <div className={`font-body text-sm leading-relaxed mt-3 ${member.placeholder ? 'italic text-brand-gray' : 'text-brand-charcoal-muted'}`}>
+                      {member.bio.split('\n\n').map((para, i) => (
+                        <p key={i} className={i > 0 ? 'mt-3' : ''}>
+                          {para}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </Card>

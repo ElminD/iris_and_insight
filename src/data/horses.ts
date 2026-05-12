@@ -23,18 +23,18 @@ export const horses: Horse[] = [
   {
     name: 'Ginny',
     photo: ginnyImg,
-    description: 'Description coming soon...',
+    description: '',
   },
   {
     name: 'Grey',
     photo: greyImg,
     imagePosition: 'center top',
-    description: 'Description coming soon...',
+    description: '',
   },
   {
     name: 'Boomer JR',
     photo: boomerImg,
-    description: 'Description coming soon...',
+    description: '',
   },
 ];
 

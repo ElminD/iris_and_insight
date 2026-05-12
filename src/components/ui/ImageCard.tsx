@@ -4,7 +4,7 @@ interface ImageCardProps {
   imagePosition?: string;
   title: string;
   subtitle?: string;
-  description: string;
+  description?: string;
   placeholder?: boolean;
 }
 
@@ -31,9 +31,11 @@ export default function ImageCard({ imageSrc, imageAlt, imagePosition, title, su
             {subtitle}
           </p>
         )}
-        <p className={`font-body text-sm mt-3 ${placeholder ? 'italic text-brand-gray' : 'text-brand-charcoal-muted'}`}>
-          {description}
-        </p>
+        {description && (
+          <p className={`font-body text-sm mt-3 ${placeholder ? 'italic text-brand-gray' : 'text-brand-charcoal-muted'}`}>
+            {description}
+          </p>
+        )}
       </div>
     </div>
   );

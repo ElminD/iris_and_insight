@@ -42,8 +42,7 @@ export default function MeetTheHorsesPage() {
                 imagePosition={horse.imagePosition}
                 title={horse.name}
                 subtitle={horse.fullName}
-                description={horse.description}
-                placeholder={horse.description === 'Description coming soon...'}
+                description={horse.description || undefined}
               />
             ))}
           </div>

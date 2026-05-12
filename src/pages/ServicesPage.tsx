@@ -1,9 +1,16 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import SectionHeading from '../components/ui/SectionHeading';
 import Card from '../components/ui/Card';
 import { services, clientTags } from '../data/services';
 
 export default function ServicesPage() {
+  const [openService, setOpenService] = useState<string | null>(null);
+
+  const toggle = (name: string) =>
+    setOpenService((prev) => (prev === name ? null : name));
+
   return (
     <>
       <Helmet>
@@ -57,28 +64,59 @@ export default function ServicesPage() {
 
           {/* Service cards grid */}
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {services.map((service) => (
-              <Card key={service.name} className="text-center">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-teal-light text-2xl">
-                  {service.icon}
-                </div>
-                <h3 className="font-body text-base font-semibold text-brand-charcoal">{service.name}</h3>
-                <p className="font-body text-sm text-brand-charcoal-muted mt-1">{service.description}</p>
-              </Card>
-            ))}
+            {services.map((service) => {
+              const isOpen = openService === service.name;
+              return (
+                <button
+                  key={service.name}
+                  onClick={() => toggle(service.name)}
+                  className="text-left w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-xl"
+                >
+                  <Card className={`transition-shadow duration-200 hover:shadow-md ${isOpen ? 'ring-2 ring-brand-teal' : ''}`}>
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1 text-center">
+                        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-teal-light text-2xl">
+                          {service.icon}
+                        </div>
+                        <h3 className="font-body text-base font-semibold text-brand-charcoal">{service.name}</h3>
+                        <p className="font-body text-sm text-brand-charcoal-muted mt-1">{service.description}</p>
+                      </div>
+                      <span className="ml-3 mt-1 text-brand-teal font-body text-lg leading-none select-none">
+                        {isOpen ? '−' : '+'}
+                      </span>
+                    </div>
+
+                    {isOpen && (
+                      <div className="mt-5 pt-5 border-t border-brand-gray-light text-center">
+                        <p className="font-body text-sm text-brand-charcoal-muted">
+                          Contact us directly to ask about availability, scheduling, and pricing.
+                        </p>
+                        <Link
+                          to="/contact"
+                          onClick={(e) => e.stopPropagation()}
+                          className="mt-3 inline-block bg-brand-teal text-brand-white font-body text-sm font-medium px-5 py-2 rounded-full hover:bg-brand-teal-dark transition-colors duration-150"
+                        >
+                          Get in Touch
+                        </Link>
+                      </div>
+                    )}
+                  </Card>
+                </button>
+              );
+            })}
           </div>
 
           {/* Opportunities */}
           <div className="mt-10 text-center">
             <p className="font-body text-sm font-medium text-brand-charcoal-muted">
-              Will travel &nbsp;|&nbsp; EAL/EAP &nbsp;|&nbsp; Workshops &nbsp;|&nbsp; Corporate Partnerships
+              EAL/EAP &nbsp;|&nbsp; Workshops &nbsp;|&nbsp; Corporate Partnerships
             </p>
           </div>
 
           {/* Placeholder */}
           <div className="mt-8 rounded-lg border-2 border-dashed border-brand-gray p-6 text-center">
             <p className="font-body text-sm text-brand-gray italic">
-              Content needed: insurance info, pricing details, travel availability specifics.
+              Content needed: insurance info, pricing details.
             </p>
           </div>
         </div>
