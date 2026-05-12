@@ -3,10 +3,25 @@ import Button from '../ui/Button';
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(false);
+    const form = e.currentTarget;
+    const res = await fetch('https://formspree.io/f/xnjwwndr', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' },
+    });
+    setLoading(false);
+    if (res.ok) {
+      setSubmitted(true);
+    } else {
+      setError(true);
+    }
   }
 
   if (submitted) {
@@ -73,7 +88,14 @@ export default function ContactForm() {
         />
       </div>
 
-      <Button type="submit">Send Message</Button>
+      {error && (
+        <p className="font-body text-sm text-red-500">
+          Something went wrong. Please try again or email us directly.
+        </p>
+      )}
+      <Button type="submit" disabled={loading}>
+        {loading ? 'Sending...' : 'Send Message'}
+      </Button>
     </form>
   );
 }
