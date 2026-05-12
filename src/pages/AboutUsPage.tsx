@@ -27,7 +27,8 @@ export default function AboutUsPage() {
                   <img
                     src={member.photo}
                     alt={member.name}
-                    className="h-20 w-20 shrink-0 rounded-full object-cover border-2 border-brand-gray-light"
+                    className="h-36 w-36 shrink-0 rounded-full object-cover border-2 border-brand-gray-light"
+                    style={member.imagePosition ? { objectPosition: member.imagePosition } : undefined}
                   />
                   <div>
                     <h3 className="font-display text-xl font-medium text-brand-charcoal">{member.name}</h3>
