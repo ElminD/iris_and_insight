@@ -3,7 +3,6 @@ import ginnyImg from '../assets/images/horses/Ginny.jpg';
 import greyImg from '../assets/images/horses/Grey.jpg';
 import boomerImg from '../assets/images/horses/Boomer_JR.jpg';
 import bodieImg from '../assets/images/horses/Bodie the Goatie.jpg';
-import catsImg from '../assets/images/scenic/Friendly Cat and Scaredy Cat.jpg';
 
 export interface Horse {
   name: string;
@@ -49,10 +48,5 @@ export const bonusAnimals: BonusAnimal[] = [
     name: 'Bodie the Goat',
     photo: bodieImg,
     description: 'Our resident goat and unofficial greeter.',
-  },
-  {
-    name: 'Friendly Cat & Scaredy Cat',
-    photo: catsImg,
-    description: 'The barn cats who keep everyone company.',
   },
 ];
