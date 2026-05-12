@@ -66,28 +66,31 @@ export default function ServicesPage() {
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {services.map((service) => {
               const isOpen = openService === service.name;
+              const panelId = `service-panel-${service.name.replace(/\s+/g, '-').toLowerCase()}`;
               return (
                 <button
                   key={service.name}
                   onClick={() => toggle(service.name)}
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
                   className="text-left w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-xl"
                 >
                   <Card className={`transition-shadow duration-200 hover:shadow-md ${isOpen ? 'ring-2 ring-brand-teal' : ''}`}>
                     <div className="flex items-start justify-between">
                       <div className="flex-1 text-center">
                         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-teal-light text-2xl">
-                          {service.icon}
+                          <span aria-hidden="true">{service.icon}</span>
                         </div>
                         <h3 className="font-body text-base font-semibold text-brand-charcoal">{service.name}</h3>
                         <p className="font-body text-sm text-brand-charcoal-muted mt-1">{service.description}</p>
                       </div>
-                      <span className="ml-3 mt-1 text-brand-teal font-body text-lg leading-none select-none">
+                      <span aria-hidden="true" className="ml-3 mt-1 text-brand-teal font-body text-lg leading-none select-none">
                         {isOpen ? '−' : '+'}
                       </span>
                     </div>
 
                     {isOpen && (
-                      <div className="mt-5 pt-5 border-t border-brand-gray-light text-center">
+                      <div id={panelId} className="mt-5 pt-5 border-t border-brand-gray-light text-center">
                         <p className="font-body text-sm text-brand-charcoal-muted">
                           Contact us directly to ask about availability, scheduling, and pricing.
                         </p>

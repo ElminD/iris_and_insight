@@ -55,6 +55,7 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
           <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             {menuOpen ? (
@@ -68,7 +69,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-brand-charcoal border-t border-white/10">
+        <nav id="mobile-menu" aria-label="Mobile navigation" className="md:hidden bg-brand-charcoal border-t border-white/10">
           <ul className="flex flex-col px-6 py-4 gap-1">
             {routes.map((route) => (
               <li key={route.path}>
@@ -85,7 +86,7 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
       )}
     </header>
   );

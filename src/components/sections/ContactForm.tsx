@@ -26,7 +26,7 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="bg-brand-teal-light rounded-xl p-8 text-center">
+      <div role="alert" className="bg-brand-teal-light rounded-xl p-8 text-center">
         <h3 className="font-display text-2xl font-medium text-brand-charcoal mb-2">Thank You!</h3>
         <p className="font-body text-brand-charcoal-muted">
           Your message has been received. We'll get back to you soon.
@@ -89,7 +89,7 @@ export default function ContactForm() {
       </div>
 
       {error && (
-        <p className="font-body text-sm text-red-500">
+        <p role="alert" className="font-body text-sm text-red-500">
           Something went wrong. Please try again or email us directly.
         </p>
       )}
