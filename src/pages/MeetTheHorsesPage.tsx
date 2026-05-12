@@ -52,15 +52,16 @@ export default function MeetTheHorsesPage() {
             <h3 className="font-display text-2xl font-medium text-brand-charcoal text-center mb-6">
               Friends of the Herd
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            <div className="flex justify-center">
               {bonusAnimals.map((animal) => (
-                <ImageCard
-                  key={animal.name}
-                  imageSrc={animal.photo}
-                  imageAlt={`${animal.name} at Iris + Insight`}
-                  title={animal.name}
-                  description={animal.description}
-                />
+                <div key={animal.name} className="w-full max-w-sm">
+                  <ImageCard
+                    imageSrc={animal.photo}
+                    imageAlt={`${animal.name} at Iris + Insight`}
+                    title={animal.name}
+                    description={animal.description}
+                  />
+                </div>
               ))}
             </div>
           </div>
