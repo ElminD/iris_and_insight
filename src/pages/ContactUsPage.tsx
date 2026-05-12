@@ -32,11 +32,11 @@ export default function ContactUsPage() {
               <div className="space-y-4">
                 <div>
                   <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal mb-1">Email</p>
-                  <p className="font-body text-sm text-brand-gray italic">Coming soon</p>
+                  <a href="mailto:irisandinsight@gmail.com" className="font-body text-sm text-brand-charcoal-muted hover:text-brand-teal transition-colors">irisandinsight@gmail.com</a>
                 </div>
                 <div>
                   <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal mb-1">Phone</p>
-                  <p className="font-body text-sm text-brand-gray italic">Coming soon</p>
+                  <a href="tel:+15154281728" className="font-body text-sm text-brand-charcoal-muted hover:text-brand-teal transition-colors">515-428-1728</a>
                 </div>
                 <div>
                   <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal mb-1">Location</p>
@@ -44,7 +44,7 @@ export default function ContactUsPage() {
                 </div>
                 <div>
                   <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal mb-1">Social Media</p>
-                  <p className="font-body text-sm text-brand-gray italic">Coming soon</p>
+                  <a href="https://www.facebook.com/share/1JTUw2LJGZ/" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-brand-charcoal-muted hover:text-brand-teal transition-colors">Iris + Insight on Facebook</a>
                 </div>
               </div>
 
