@@ -2,6 +2,7 @@ export interface Service {
   icon: string;
   name: string;
   description: string;
+  signupUrl?: string;
 }
 
 export const services: Service[] = [
@@ -24,6 +25,7 @@ export const services: Service[] = [
     icon: '🎓',
     name: 'Workshops',
     description: 'Group learning experiences',
+    signupUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdYgQdkSi4oxPlNZemPRSQ7e3OQL_oRIhohq1d6QzxKGjDewQ/viewform',
   },
 ];
 

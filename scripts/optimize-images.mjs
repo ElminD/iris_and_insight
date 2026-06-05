@@ -16,6 +16,7 @@ const configs = [
   { input: 'people/Kelsey Finch.jpg',          width: 300,  quality: 85 },
   { input: 'people/Sareena.jpg',               width: 300,  quality: 85 },
   { input: 'Logo.png',                         width: null, quality: 90 },
+  { input: 'OK-Corral-Series-logo.png',        width: null, quality: 90 },
 ];
 
 for (const { input, width, quality } of configs) {

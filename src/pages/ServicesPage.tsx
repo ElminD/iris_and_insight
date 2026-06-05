@@ -94,13 +94,30 @@ export default function ServicesPage() {
                         <p className="font-body text-sm text-brand-charcoal-muted">
                           Contact us directly to ask about availability, scheduling, and pricing.
                         </p>
-                        <Link
-                          to="/contact"
-                          onClick={(e) => e.stopPropagation()}
-                          className="mt-3 inline-block bg-brand-teal text-brand-white font-body text-sm font-medium px-5 py-2 rounded-full hover:bg-brand-teal-dark transition-colors duration-150"
-                        >
-                          Get in Touch
-                        </Link>
+                        <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
+                          {service.signupUrl && (
+                            <a
+                              href={service.signupUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-block bg-brand-teal text-brand-white font-body text-sm font-medium px-5 py-2 rounded-full hover:bg-brand-teal-dark transition-colors duration-150"
+                            >
+                              Register for a Workshop
+                            </a>
+                          )}
+                          <Link
+                            to="/contact"
+                            onClick={(e) => e.stopPropagation()}
+                            className={`inline-block font-body text-sm font-medium px-5 py-2 rounded-full transition-colors duration-150 ${
+                              service.signupUrl
+                                ? 'border border-brand-teal text-brand-teal hover:bg-brand-teal-light'
+                                : 'bg-brand-teal text-brand-white hover:bg-brand-teal-dark'
+                            }`}
+                          >
+                            Get in Touch
+                          </Link>
+                        </div>
                       </div>
                     )}
                   </Card>

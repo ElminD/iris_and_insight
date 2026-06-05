@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import SectionHeading from '../components/ui/SectionHeading';
 import Card from '../components/ui/Card';
+import okCorralLogo from '../assets/images/OK-Corral-Series-logo.webp';
 
 const sections = [
   {
@@ -43,7 +44,19 @@ export default function AboutEALEAPPage() {
             ))}
 
             <Card>
-              <h3 className="font-display text-2xl font-medium text-brand-charcoal mb-3">Our Certification</h3>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 mb-5">
+                <h3 className="font-display text-2xl font-medium text-brand-charcoal mb-4 sm:mb-0">Our Certification</h3>
+                <div className="bg-brand-charcoal rounded-xl px-6 py-4 inline-flex items-center justify-center sm:ml-auto">
+                  <img
+                    src={okCorralLogo}
+                    alt="O.K. Corral Series certified"
+                    className="h-16 w-auto object-contain"
+                    loading="lazy"
+                    width={556}
+                    height={268}
+                  />
+                </div>
+              </div>
               <p className="font-body text-base leading-relaxed text-brand-charcoal-muted">
                 Iris + Insight is certified by the O.K. Corral Series. Kelsey and Sareena were
                 personally trained by Greg Kersten, recognized as the founder of Equine-Assisted
