@@ -25,7 +25,9 @@ export const services: Service[] = [
     icon: '🎓',
     name: 'Workshops',
     description: 'Group learning experiences',
-    signupUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdYgQdkSi4oxPlNZemPRSQ7e3OQL_oRIhohq1d6QzxKGjDewQ/viewform',
+    // Workshop on July 24 2026 (7/24/2026)
+    signupUrl:
+      'https://docs.google.com/forms/d/e/1FAIpQLSfvCM620HQTfeVwa2nsfCgwTn9fVWk48JVIVxRDlBqNW-FP6w/viewform',
   },
 ];
 
