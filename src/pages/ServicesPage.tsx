@@ -75,45 +75,65 @@ export default function ServicesPage() {
                   aria-controls={panelId}
                   className="text-left w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-xl"
                 >
-                  <Card className={`transition-shadow duration-200 hover:shadow-md ${isOpen ? 'ring-2 ring-brand-teal' : ''}`}>
+                  <Card
+                    className={`transition-shadow duration-200 hover:shadow-md ${isOpen ? 'ring-2 ring-brand-teal' : ''}`}
+                  >
                     <div className="flex items-start justify-between">
                       <div className="flex-1 text-center">
                         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-teal-light text-2xl">
                           <span aria-hidden="true">{service.icon}</span>
                         </div>
-                        <h3 className="font-body text-base font-semibold text-brand-charcoal">{service.name}</h3>
-                        <p className="font-body text-sm text-brand-charcoal-muted mt-1">{service.description}</p>
+                        <h3 className="font-body text-base font-semibold text-brand-charcoal">
+                          {service.name}
+                        </h3>
+                        <p className="font-body text-sm text-brand-charcoal-muted mt-1">
+                          {service.description}
+                        </p>
                       </div>
-                      <span aria-hidden="true" className="ml-3 mt-1 text-brand-teal font-body text-lg leading-none select-none">
+                      <span
+                        aria-hidden="true"
+                        className="ml-3 mt-1 text-brand-teal font-body text-lg leading-none select-none"
+                      >
                         {isOpen ? '−' : '+'}
                       </span>
                     </div>
 
                     {isOpen && (
-                      <div id={panelId} className="mt-5 pt-5 border-t border-brand-gray-light text-center">
-                        <p className="font-body text-sm text-brand-charcoal-muted">
-                          Contact us directly to ask about availability, scheduling, and pricing.
-                        </p>
-                        <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-                          {service.signupUrl && (
+                      <div
+                        id={panelId}
+                        className="mt-5 pt-5 border-t border-brand-gray-light text-center"
+                      >
+                        {(service.workshop && new Date() < service.workshop.cutoff) && (
+                          <>
+                            <p>{service.workshop.name}</p>
+                            <p>{service.workshop.date}</p>
+                            <img
+                              src={service.workshop.image}
+                              alt="Workshop Flyer"
+                              fetchPriority="high"
+                              loading="eager"
+                              width={900}
+                              height={1200}
+                            />
                             <a
-                              href={service.signupUrl}
+                              href={service.workshop.signupUrl}
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
                               className="inline-block bg-brand-teal text-brand-white font-body text-sm font-medium px-5 py-2 rounded-full hover:bg-brand-teal-dark transition-colors duration-150"
                             >
-                              Register for a Workshop
+                              Register
                             </a>
-                          )}
+                          </>
+                        )}
+                        <p className="font-body text-sm text-brand-charcoal-muted">
+                          Contact us directly to ask about availability, scheduling, and pricing.
+                        </p>
+                        <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
                           <Link
                             to="/contact"
                             onClick={(e) => e.stopPropagation()}
-                            className={`inline-block font-body text-sm font-medium px-5 py-2 rounded-full transition-colors duration-150 ${
-                              service.signupUrl
-                                ? 'border border-brand-teal text-brand-teal hover:bg-brand-teal-light'
-                                : 'bg-brand-teal text-brand-white hover:bg-brand-teal-dark'
-                            }`}
+                            className={`inline-block font-body text-sm font-medium px-5 py-2 rounded-full transition-colors duration-150 bg-brand-teal text-brand-white hover:bg-brand-teal-dark`}
                           >
                             Get in Touch
                           </Link>
