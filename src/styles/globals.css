@@ -1,20 +1,20 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --color-brand-teal: #2A9BBF;
-  --color-brand-teal-dark: #1E7A99;
-  --color-brand-teal-light: #E8F4F8;
-  --color-brand-charcoal: #2E2E2E;
-  --color-brand-charcoal-light: #3D3D3D;
+  --color-brand-teal: #2a9bbf;
+  --color-brand-teal-dark: #1e7a99;
+  --color-brand-teal-light: #e8f4f8;
+  --color-brand-charcoal: #2e2e2e;
+  --color-brand-charcoal-light: #3d3d3d;
   --color-brand-charcoal-muted: #555555;
-  --color-brand-gray: #B5B8B3;
-  --color-brand-gray-light: #E8E9E6;
-  --color-brand-white: #FFFFFF;
-  --color-brand-off-white: #F7F8F6;
-  --color-brand-bg: #F9FAFA;
+  --color-brand-gray: #b5b8b3;
+  --color-brand-gray-light: #e8e9e6;
+  --color-brand-white: #ffffff;
+  --color-brand-off-white: #f7f8f6;
+  --color-brand-bg: #f9fafa;
 
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body: "DM Sans", Helvetica, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', Helvetica, sans-serif;
 }
 
 /* Base styles */
@@ -24,7 +24,9 @@ body {
   background-color: var(--color-brand-bg);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-display);
   color: var(--color-brand-charcoal);
 }

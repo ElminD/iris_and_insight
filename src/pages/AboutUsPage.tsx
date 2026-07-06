@@ -8,7 +8,10 @@ export default function AboutUsPage() {
     <>
       <Helmet>
         <title>About Us | Iris + Insight</title>
-        <meta name="description" content="Meet Kelsey and Sareena — two licensed therapists passionate about equine-assisted services." />
+        <meta
+          name="description"
+          content="Meet Kelsey and Sareena — two licensed therapists passionate about equine-assisted services."
+        />
         <link rel="canonical" href="https://irisandinsight.com/about" />
       </Helmet>
 
@@ -31,14 +34,20 @@ export default function AboutUsPage() {
                     width={144}
                     height={144}
                     loading="lazy"
-                    style={member.imagePosition ? { objectPosition: member.imagePosition } : undefined}
+                    style={
+                      member.imagePosition ? { objectPosition: member.imagePosition } : undefined
+                    }
                   />
                   <div>
-                    <h3 className="font-display text-xl font-medium text-brand-charcoal">{member.name}</h3>
+                    <h3 className="font-display text-xl font-medium text-brand-charcoal">
+                      {member.name}
+                    </h3>
                     <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal mt-1">
                       {member.role}
                     </p>
-                    <div className={`font-body text-sm leading-relaxed mt-3 ${member.placeholder ? 'italic text-brand-gray' : 'text-brand-charcoal-muted'}`}>
+                    <div
+                      className={`font-body text-sm leading-relaxed mt-3 ${member.placeholder ? 'italic text-brand-gray' : 'text-brand-charcoal-muted'}`}
+                    >
                       {member.bio.split('\n\n').map((para, i) => (
                         <p key={i} className={i > 0 ? 'mt-3' : ''}>
                           {para}
@@ -50,7 +59,6 @@ export default function AboutUsPage() {
               </Card>
             ))}
           </div>
-
         </div>
       </section>
     </>

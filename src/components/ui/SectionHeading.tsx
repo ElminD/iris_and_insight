@@ -5,7 +5,12 @@ interface SectionHeadingProps {
   centered?: boolean;
 }
 
-export default function SectionHeading({ eyebrow, title, subtitle, centered = true }: SectionHeadingProps) {
+export default function SectionHeading({
+  eyebrow,
+  title,
+  subtitle,
+  centered = true,
+}: SectionHeadingProps) {
   return (
     <div className={centered ? 'text-center' : ''}>
       <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal mb-4">
@@ -15,9 +20,7 @@ export default function SectionHeading({ eyebrow, title, subtitle, centered = tr
         {title}
       </h2>
       {subtitle && (
-        <p className="font-body text-base text-brand-charcoal-muted max-w-xl mx-auto">
-          {subtitle}
-        </p>
+        <p className="font-body text-base text-brand-charcoal-muted max-w-xl mx-auto">{subtitle}</p>
       )}
     </div>
   );

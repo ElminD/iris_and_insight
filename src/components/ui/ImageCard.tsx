@@ -8,7 +8,15 @@ interface ImageCardProps {
   placeholder?: boolean;
 }
 
-export default function ImageCard({ imageSrc, imageAlt, imagePosition, title, subtitle, description, placeholder = false }: ImageCardProps) {
+export default function ImageCard({
+  imageSrc,
+  imageAlt,
+  imagePosition,
+  title,
+  subtitle,
+  description,
+  placeholder = false,
+}: ImageCardProps) {
   return (
     <div className="bg-brand-white rounded-xl border border-brand-gray-light overflow-hidden transition-shadow hover:shadow-md">
       {imageSrc ? (
@@ -34,7 +42,9 @@ export default function ImageCard({ imageSrc, imageAlt, imagePosition, title, su
           </p>
         )}
         {description && (
-          <p className={`font-body text-sm mt-3 ${placeholder ? 'italic text-brand-gray' : 'text-brand-charcoal-muted'}`}>
+          <p
+            className={`font-body text-sm mt-3 ${placeholder ? 'italic text-brand-gray' : 'text-brand-charcoal-muted'}`}
+          >
             {description}
           </p>
         )}

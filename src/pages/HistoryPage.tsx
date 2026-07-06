@@ -18,7 +18,10 @@ export default function HistoryPage() {
     <>
       <Helmet>
         <title>Our Story | Iris + Insight</title>
-        <meta name="description" content="How a horse named Cat sparked the dream behind Iris + Insight." />
+        <meta
+          name="description"
+          content="How a horse named Cat sparked the dream behind Iris + Insight."
+        />
         <link rel="canonical" href="https://irisandinsight.com/history" />
       </Helmet>
 

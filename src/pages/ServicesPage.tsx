@@ -8,14 +8,16 @@ import { services, clientTags } from '../data/services';
 export default function ServicesPage() {
   const [openService, setOpenService] = useState<string | null>(null);
 
-  const toggle = (name: string) =>
-    setOpenService((prev) => (prev === name ? null : name));
+  const toggle = (name: string) => setOpenService((prev) => (prev === name ? null : name));
 
   return (
     <>
       <Helmet>
         <title>Services | Iris + Insight</title>
-        <meta name="description" content="Personalized equine-assisted therapy for individuals, couples, families, and businesses." />
+        <meta
+          name="description"
+          content="Personalized equine-assisted therapy for individuals, couples, families, and businesses."
+        />
         <link rel="canonical" href="https://irisandinsight.com/services" />
       </Helmet>
 
@@ -29,7 +31,9 @@ export default function ServicesPage() {
 
           {/* Who We Serve */}
           <Card className="mt-12">
-            <h3 className="font-display text-2xl font-medium text-brand-charcoal mb-3">Who We Serve</h3>
+            <h3 className="font-display text-2xl font-medium text-brand-charcoal mb-3">
+              Who We Serve
+            </h3>
             <p className="font-body text-base leading-relaxed text-brand-charcoal-muted">
               At Iris + Insight, clients get two licensed therapists who care deeply about the work
               they do. We work with adolescents, adults, couples, families, and businesses —
@@ -37,8 +41,8 @@ export default function ServicesPage() {
             </p>
             <p className="font-body text-base leading-relaxed text-brand-charcoal-muted mt-4">
               We are passionate about serving those looking for new approaches to personal and
-              professional growth, including the LGBTQ+ community, underrepresented populations,
-              and corporate teams.
+              professional growth, including the LGBTQ+ community, underrepresented populations, and
+              corporate teams.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {clientTags.map((tag) => (
@@ -54,11 +58,13 @@ export default function ServicesPage() {
 
           {/* Focus Areas */}
           <Card className="mt-6">
-            <h3 className="font-display text-2xl font-medium text-brand-charcoal mb-3">Our Focus Areas</h3>
+            <h3 className="font-display text-2xl font-medium text-brand-charcoal mb-3">
+              Our Focus Areas
+            </h3>
             <p className="font-body text-base leading-relaxed text-brand-charcoal-muted">
-              Building self-esteem, strengthening relationships, improving communication, encouraging
-              teamwork, and fostering a sense of self-worth — all through the unique and intuitive
-              language of horses.
+              Building self-esteem, strengthening relationships, improving communication,
+              encouraging teamwork, and fostering a sense of self-worth — all through the unique and
+              intuitive language of horses.
             </p>
           </Card>
 
@@ -103,7 +109,7 @@ export default function ServicesPage() {
                         id={panelId}
                         className="mt-5 pt-5 border-t border-brand-gray-light text-center"
                       >
-                        {(service.workshop && new Date() < service.workshop.cutoff) && (
+                        {service.workshop && new Date() < service.workshop.cutoff && (
                           <>
                             <p>{service.workshop.name}</p>
                             <p>{service.workshop.date}</p>
@@ -152,7 +158,6 @@ export default function ServicesPage() {
               EAL/EAP &nbsp;|&nbsp; Workshops &nbsp;|&nbsp; Corporate Partnerships
             </p>
           </div>
-
         </div>
       </section>
     </>

@@ -9,7 +9,10 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>Iris + Insight</title>
-        <meta name="description" content="Equine-assisted psychotherapy and consulting in Iowa. Healing, growth, and connection guided by horses." />
+        <meta
+          name="description"
+          content="Equine-assisted psychotherapy and consulting in Iowa. Healing, growth, and connection guided by horses."
+        />
         <link rel="canonical" href="https://irisandinsight.com/" />
       </Helmet>
       <Hero />

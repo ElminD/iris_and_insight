@@ -12,21 +12,22 @@ Build a responsive, production-ready website for **Iris + Insight**, an equine-a
 
 ## 2. TECH STACK (LOCKED)
 
-| Layer          | Technology                          | Notes                                    |
-|----------------|-------------------------------------|------------------------------------------|
-| Language       | TypeScript (strict mode)            | No `any` types                           |
-| Framework      | React 18+                           | Functional components + hooks only       |
-| Build Tool     | Vite 5+                             | `npm create vite@latest`                 |
-| Routing        | React Router v6                     | Client-side routing, `BrowserRouter`     |
-| Styling        | Tailwind CSS 3+                     | Custom theme config, no inline styles    |
-| Image Handling | `vite-imagetools` or manual srcsets | Lazy loading, WebP conversion            |
-| Linting        | ESLint + Prettier                   | Standard config                          |
-| Hosting        | Digital Ocean Droplet (Ubuntu 24)   | $6/mo basic                              |
-| Web Server     | Nginx                               | Static file serving + SSL termination    |
-| SSL            | Let's Encrypt via Certbot           | Auto-renewal                             |
-| DNS            | Squarespace (registrar only)        | A records → droplet IP                   |
+| Layer          | Technology                          | Notes                                 |
+| -------------- | ----------------------------------- | ------------------------------------- |
+| Language       | TypeScript (strict mode)            | No `any` types                        |
+| Framework      | React 18+                           | Functional components + hooks only    |
+| Build Tool     | Vite 5+                             | `npm create vite@latest`              |
+| Routing        | React Router v6                     | Client-side routing, `BrowserRouter`  |
+| Styling        | Tailwind CSS 3+                     | Custom theme config, no inline styles |
+| Image Handling | `vite-imagetools` or manual srcsets | Lazy loading, WebP conversion         |
+| Linting        | ESLint + Prettier                   | Standard config                       |
+| Hosting        | Digital Ocean Droplet (Ubuntu 24)   | $6/mo basic                           |
+| Web Server     | Nginx                               | Static file serving + SSL termination |
+| SSL            | Let's Encrypt via Certbot           | Auto-renewal                          |
+| DNS            | Squarespace (registrar only)        | A records → droplet IP                |
 
 ### Package.json Dependencies (minimum)
+
 ```
 react, react-dom, react-router-dom, typescript,
 tailwindcss, postcss, autoprefixer,
@@ -35,6 +36,7 @@ vite, @vitejs/plugin-react
 ```
 
 ### Optional (evaluate during build)
+
 ```
 react-helmet-async (SEO meta tags),
 react-intersection-observer (scroll animations),
@@ -46,11 +48,13 @@ sharp (build-time image optimization)
 ## 3. DOMAINS & INFRASTRUCTURE
 
 ### 3.1 Domains (pending purchase approval)
+
 - **Primary:** `irisandinsight.com`
 - **Redirect:** `irisandinsights.com` → 301 redirect to primary
 - **Registrar:** Squarespace (DNS management only — do NOT use Squarespace site builder)
 
 ### 3.2 Digital Ocean Droplet Setup
+
 ```bash
 # 1. Create droplet: Ubuntu 24.04 LTS, Basic $6/mo, region: SFO or NYC
 # 2. SSH in and run:
@@ -64,6 +68,7 @@ sudo ufw enable
 ### 3.3 Nginx Configuration
 
 **Primary domain** — `/etc/nginx/sites-available/irisandinsight.com`:
+
 ```nginx
 server {
     listen 80;
@@ -90,6 +95,7 @@ server {
 ```
 
 **Redirect domain** — `/etc/nginx/sites-available/irisandinsights.com`:
+
 ```nginx
 server {
     listen 80;
@@ -99,12 +105,14 @@ server {
 ```
 
 **SSL setup:**
+
 ```bash
 sudo certbot --nginx -d irisandinsight.com -d www.irisandinsight.com
 sudo certbot --nginx -d irisandinsights.com -d www.irisandinsights.com
 ```
 
 ### 3.4 Deploy Script (`deploy.sh` at project root)
+
 ```bash
 #!/bin/bash
 set -e
@@ -124,22 +132,23 @@ The client selected Behr Dynasty Marquee paint swatches. Translate to web-safe h
 // tailwind.config.ts → theme.extend.colors
 const colors = {
   brand: {
-    teal:         '#2A9BBF',  // Primary accent — CTAs, links, highlights
-    'teal-dark':  '#1E7A99',  // Hover states, dark accents
-    'teal-light': '#E8F4F8',  // Light backgrounds, tag fills
-    charcoal:     '#2E2E2E',  // Nav background, headings, footer
+    teal: '#2A9BBF', // Primary accent — CTAs, links, highlights
+    'teal-dark': '#1E7A99', // Hover states, dark accents
+    'teal-light': '#E8F4F8', // Light backgrounds, tag fills
+    charcoal: '#2E2E2E', // Nav background, headings, footer
     'charcoal-light': '#3D3D3D', // Secondary dark text
     'charcoal-muted': '#555555', // Body text
-    gray:         '#B5B8B3',  // Borders, muted text, placeholders
-    'gray-light': '#E8E9E6',  // Dividers, card borders
-    white:        '#FFFFFF',  // Card backgrounds
-    'off-white':  '#F7F8F6',  // Page background alternate sections
-    bg:           '#F9FAFA',  // Main page background
-  }
+    gray: '#B5B8B3', // Borders, muted text, placeholders
+    'gray-light': '#E8E9E6', // Dividers, card borders
+    white: '#FFFFFF', // Card backgrounds
+    'off-white': '#F7F8F6', // Page background alternate sections
+    bg: '#F9FAFA', // Main page background
+  },
 };
 ```
 
 ### Usage Rules
+
 - **Nav bar & Footer:** `brand-charcoal` background, white text, `brand-teal` for active/accent
 - **Body text:** `brand-charcoal-muted` on `brand-bg`
 - **Headings:** `brand-charcoal`
@@ -160,13 +169,18 @@ fontFamily: {
 ```
 
 ### Loading (in index.html `<head>`)
+
 ```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+  rel="stylesheet"
+/>
 ```
 
 ### Rules
+
 - **Page titles, hero headings, names:** `font-display` (Cormorant Garamond)
 - **Everything else (nav, body, labels, buttons, captions):** `font-body` (DM Sans)
 - **Eyebrow labels:** `font-body`, 11-12px, uppercase, `tracking-[0.18em]`, `brand-teal`
@@ -262,17 +276,18 @@ iris-and-insight/
 ```typescript
 // src/data/navigation.ts
 export const routes = [
-  { path: '/',                label: 'Home',                  component: HomePage },
-  { path: '/about',           label: 'About Us',              component: AboutUsPage },
-  { path: '/history',         label: 'History',               component: HistoryPage },
-  { path: '/equine-services', label: 'About EAL/EAP',        component: AboutEALEAPPage },
-  { path: '/services',        label: 'Services',              component: ServicesPage },
-  { path: '/horses',          label: 'Meet the Horses',       component: MeetTheHorsesPage },
-  { path: '/contact',         label: 'Contact Us',            component: ContactUsPage },
+  { path: '/', label: 'Home', component: HomePage },
+  { path: '/about', label: 'About Us', component: AboutUsPage },
+  { path: '/history', label: 'History', component: HistoryPage },
+  { path: '/equine-services', label: 'About EAL/EAP', component: AboutEALEAPPage },
+  { path: '/services', label: 'Services', component: ServicesPage },
+  { path: '/horses', label: 'Meet the Horses', component: MeetTheHorsesPage },
+  { path: '/contact', label: 'Contact Us', component: ContactUsPage },
 ];
 ```
 
 ### Router Config (App.tsx)
+
 - Use `BrowserRouter` with a `Layout` component wrapping `<Outlet />`
 - Add a catch-all `*` route that redirects to `/`
 - Use `useScrollToTop` hook in Layout to scroll to top on every navigation
@@ -282,6 +297,7 @@ export const routes = [
 ## 8. COMPONENT SPECIFICATIONS
 
 ### 8.1 Navbar (`components/layout/Navbar.tsx`)
+
 - **Position:** `sticky top-0 z-50`
 - **Background:** `brand-charcoal`
 - **Height:** 68px
@@ -294,41 +310,50 @@ export const routes = [
 - **Behavior:** Close mobile menu on route change and on click outside
 
 ### 8.2 Footer (`components/layout/Footer.tsx`)
+
 - **Background:** `brand-charcoal`
 - **Content:** Brand name, tagline "Equine-Assisted Psychotherapy & Consulting", copyright year (dynamic), optional social links placeholder
 - **Padding:** `py-10`
 
 ### 8.3 SectionHeading (`components/ui/SectionHeading.tsx`)
+
 Reusable pattern used on every page:
+
 ```typescript
 interface SectionHeadingProps {
-  eyebrow: string;     // e.g. "Our Team"
-  title: string;       // e.g. "About Us"
-  subtitle?: string;   // e.g. "Two licensed therapists..."
-  centered?: boolean;  // default true
+  eyebrow: string; // e.g. "Our Team"
+  title: string; // e.g. "About Us"
+  subtitle?: string; // e.g. "Two licensed therapists..."
+  centered?: boolean; // default true
 }
 ```
+
 - Eyebrow: `font-body text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal mb-4`
 - Title: `font-display text-3xl md:text-5xl font-medium text-brand-charcoal mb-3`
 - Subtitle: `font-body text-base text-brand-charcoal-muted max-w-xl mx-auto`
 
 ### 8.4 Card (`components/ui/Card.tsx`)
+
 ```typescript
 interface CardProps {
   children: React.ReactNode;
   className?: string;
 }
 ```
+
 - Style: `bg-brand-white rounded-xl border border-brand-gray-light p-8`
 
 ### 8.5 ValueCard (`components/ui/ValueCard.tsx`)
+
 Used in inclusion statement section:
+
 ```typescript
 interface ValueCardProps {
   title: string;
   description: string;
 }
 ```
+
 - Container: Card style + `text-center`
 - Title: `font-body text-sm font-semibold text-brand-teal mb-2`
 - Description: `font-body text-sm text-brand-charcoal-muted`
@@ -345,7 +370,7 @@ interface ValueCardProps {
    - **Left column (flex 1):** Single photo — use `sareena-hugging-horse.jpg` (or `kelsey-with-horse-2.jpg` — client to confirm which photo of S+K with Cat to use). Rounded corners, subtle shadow.
    - **Right column (flex 1):**
      - Eyebrow: "Equine-Assisted Psychotherapy & Consulting"
-     - Heading: "Welcome to *Iris + Insight*!" (Iris + Insight in teal italic)
+     - Heading: "Welcome to _Iris + Insight_!" (Iris + Insight in teal italic)
      - Body: "Where healing, growth, and connection begin — guided by the wisdom of horses. We are two licensed therapists who believe in the power of the horse-human bond to transform lives, strengthen relationships, and foster personal growth."
    - **Padding:** `py-16 px-6`, max-width 1200px centered
    - **Gap:** 48px between columns
@@ -354,7 +379,7 @@ interface ValueCardProps {
 2. **Mission Statement Band** — Full-width dark section
    - **Background:** `brand-charcoal`
    - **Label:** "OUR MISSION" (teal eyebrow)
-   - **Text:** *"Iris + Insight recognizes the strength and significance of horses and is passionate about providing services that utilize them to improve mental health and wellbeing."*
+   - **Text:** _"Iris + Insight recognizes the strength and significance of horses and is passionate about providing services that utilize them to improve mental health and wellbeing."_
    - **Style:** `font-display italic text-xl md:text-2xl text-white/90 text-center max-w-3xl mx-auto`
    - **Padding:** `py-14`
 
@@ -392,7 +417,7 @@ interface ValueCardProps {
    - Photo placeholder (same styling)
    - Name: "Sareena"
    - Role: "CO-FOUNDER / THERAPIST & EQUINE PROFESSIONAL"
-   - Bio text: *"Bio coming soon..."* (italic, muted gray — client has not provided yet)
+   - Bio text: _"Bio coming soon..."_ (italic, muted gray — client has not provided yet)
    - **Candidate photo:** `sareena-brushing-horse.jpg` or `sareena-hugging-horse.jpg`
 
 3. **Placeholder block:** "Additional content needed: certification details, credentials, insurance information."
@@ -498,6 +523,7 @@ interface ValueCardProps {
    - `Card` styling
 
    **Horse data** (from `src/data/horses.ts`):
+
    ```typescript
    export const horses = [
      {
@@ -559,26 +585,26 @@ interface ValueCardProps {
 
 ### 10.1 Provided Assets — File Mapping
 
-| Original Filename | Rename To | Dimensions | Subject | Recommended Usage |
-|---|---|---|---|---|
-| `Logo.png` | `logo.png` | 800x800 | I+I business logo (horse, iris flower, horseshoe) | Navbar, Logo Bar, favicon source |
-| `Cat.jpg` | `cat.jpg` | 1500x2000 | Dark brown horse (Cat) in pasture | Meet the Horses — Cat profile |
-| `Ginny.jpg` | `ginny.jpg` | 577x640 | Gray horse saddled with fall tree | Meet the Horses — Ginny profile |
-| `Grey.jpg` | `grey.jpg` | 1500x2000 | Gray horse lying in field | Meet the Horses — Grey profile |
-| `Boomer_JR.jpg` | `boomer-jr.jpg` | 1500x2000 | Two brown horses in green pasture | Meet the Horses — Boomer JR |
-| `Bodie_the_Goatie.jpg` | `bodie-goat.jpg` | 1500x2000 | Red goat in trailer | Meet the Horses — Bodie |
-| `Friendly_Cat_and_Scaredy_Cat.jpg` | `barn-cats.jpg` | 1505x2000 | Two orange cats on tractor | Meet the Horses — Barn cats |
-| `Horses_in_pasture.jpg` | `horses-in-pasture.jpg` | 1500x2000 | 4 horses grazing, blue sky | Hero background candidate, History page, scenic |
-| `F907AE8A...JPG` | `white-horse-profile-sunset.jpg` | 1500x2000 | White horse profile, sun behind | Feature image, atmospheric |
-| `82BBED0B...JPG` | `white-horse-over-fence.jpg` | 2000x1500 | White horse close-up at fence | Homepage, About |
-| `E67A4E5C...JPG` | `two-brown-horses-closeup.jpg` | 1500x2000 | Two brown horses looking at camera | Meet the Horses, scenic |
-| `70AD2613...JPG` | `kelsey-with-horse-1.jpg` | 1500x2000 | Woman in green shirt petting braided horse | About Us — Kelsey |
-| `CD59C57D...JPG` | `kelsey-with-horse-2.jpg` | 1500x2000 | Same woman smiling with braided horse | About Us — Kelsey alt |
-| `D5A3400C...JPG` | `sareena-hugging-horse.jpg` | 1500x2000 | Woman hugging buckskin horse | Homepage hero candidate, About Us — Sareena |
-| `F5F2A1FB...JPG` | `sareena-brushing-horse.jpg` | 1500x2000 | Woman brushing chestnut horse | About Us — Sareena alt, EAL/EAP |
-| `CB84F025...JPG` | `kids-with-brown-horse.jpg` | 2000x1500 | Two kids petting brown horse in pasture | Services, Gallery |
-| `6063DD36...JPG` | `girl-with-white-horse.jpg` | 1500x2000 | Girl petting white horse, smiling | Services, Gallery |
-| `1FA93B16...JPG` | `boy-with-white-horse.jpg` | 1500x2000 | Boy hugging white horse's face | Homepage, Gallery — powerful connection image |
+| Original Filename                  | Rename To                        | Dimensions | Subject                                           | Recommended Usage                               |
+| ---------------------------------- | -------------------------------- | ---------- | ------------------------------------------------- | ----------------------------------------------- |
+| `Logo.png`                         | `logo.png`                       | 800x800    | I+I business logo (horse, iris flower, horseshoe) | Navbar, Logo Bar, favicon source                |
+| `Cat.jpg`                          | `cat.jpg`                        | 1500x2000  | Dark brown horse (Cat) in pasture                 | Meet the Horses — Cat profile                   |
+| `Ginny.jpg`                        | `ginny.jpg`                      | 577x640    | Gray horse saddled with fall tree                 | Meet the Horses — Ginny profile                 |
+| `Grey.jpg`                         | `grey.jpg`                       | 1500x2000  | Gray horse lying in field                         | Meet the Horses — Grey profile                  |
+| `Boomer_JR.jpg`                    | `boomer-jr.jpg`                  | 1500x2000  | Two brown horses in green pasture                 | Meet the Horses — Boomer JR                     |
+| `Bodie_the_Goatie.jpg`             | `bodie-goat.jpg`                 | 1500x2000  | Red goat in trailer                               | Meet the Horses — Bodie                         |
+| `Friendly_Cat_and_Scaredy_Cat.jpg` | `barn-cats.jpg`                  | 1505x2000  | Two orange cats on tractor                        | Meet the Horses — Barn cats                     |
+| `Horses_in_pasture.jpg`            | `horses-in-pasture.jpg`          | 1500x2000  | 4 horses grazing, blue sky                        | Hero background candidate, History page, scenic |
+| `F907AE8A...JPG`                   | `white-horse-profile-sunset.jpg` | 1500x2000  | White horse profile, sun behind                   | Feature image, atmospheric                      |
+| `82BBED0B...JPG`                   | `white-horse-over-fence.jpg`     | 2000x1500  | White horse close-up at fence                     | Homepage, About                                 |
+| `E67A4E5C...JPG`                   | `two-brown-horses-closeup.jpg`   | 1500x2000  | Two brown horses looking at camera                | Meet the Horses, scenic                         |
+| `70AD2613...JPG`                   | `kelsey-with-horse-1.jpg`        | 1500x2000  | Woman in green shirt petting braided horse        | About Us — Kelsey                               |
+| `CD59C57D...JPG`                   | `kelsey-with-horse-2.jpg`        | 1500x2000  | Same woman smiling with braided horse             | About Us — Kelsey alt                           |
+| `D5A3400C...JPG`                   | `sareena-hugging-horse.jpg`      | 1500x2000  | Woman hugging buckskin horse                      | Homepage hero candidate, About Us — Sareena     |
+| `F5F2A1FB...JPG`                   | `sareena-brushing-horse.jpg`     | 1500x2000  | Woman brushing chestnut horse                     | About Us — Sareena alt, EAL/EAP                 |
+| `CB84F025...JPG`                   | `kids-with-brown-horse.jpg`      | 2000x1500  | Two kids petting brown horse in pasture           | Services, Gallery                               |
+| `6063DD36...JPG`                   | `girl-with-white-horse.jpg`      | 1500x2000  | Girl petting white horse, smiling                 | Services, Gallery                               |
+| `1FA93B16...JPG`                   | `boy-with-white-horse.jpg`       | 1500x2000  | Boy hugging white horse's face                    | Homepage, Gallery — powerful connection image   |
 
 ### 10.2 Image Processing Pipeline
 
@@ -602,6 +628,7 @@ done
 ```
 
 ### 10.3 Image Component Pattern
+
 ```typescript
 // Use native lazy loading + responsive srcset
 <img
@@ -615,6 +642,7 @@ done
 ```
 
 ### 10.4 MISSING ASSETS (still needed from client)
+
 - [ ] OK Corral Series logo file
 - [ ] Sareena's bio text
 - [ ] Horse personality/description text for each horse
@@ -644,17 +672,19 @@ done
 ```
 
 ### 11.2 Page Descriptions
-| Page | Title | Description |
-|------|-------|-------------|
-| Home | Iris + Insight | Equine-assisted psychotherapy and consulting in Iowa. Healing, growth, and connection guided by horses. |
-| About | About Us | Meet Kelsey and Sareena — two licensed therapists passionate about equine-assisted services. |
-| History | Our Story | How a horse named Cat sparked the dream behind Iris + Insight. |
-| EAL/EAP | About EAL/EAP | Learn about equine-assisted learning and psychotherapy at Iris + Insight. |
-| Services | Services | Personalized equine-assisted therapy for individuals, couples, families, and businesses. |
-| Horses | Meet the Horses | Meet the intuitive equine partners at Iris + Insight. |
-| Contact | Contact Us | Get in touch with Iris + Insight to learn more about our equine-assisted services. |
+
+| Page     | Title           | Description                                                                                             |
+| -------- | --------------- | ------------------------------------------------------------------------------------------------------- |
+| Home     | Iris + Insight  | Equine-assisted psychotherapy and consulting in Iowa. Healing, growth, and connection guided by horses. |
+| About    | About Us        | Meet Kelsey and Sareena — two licensed therapists passionate about equine-assisted services.            |
+| History  | Our Story       | How a horse named Cat sparked the dream behind Iris + Insight.                                          |
+| EAL/EAP  | About EAL/EAP   | Learn about equine-assisted learning and psychotherapy at Iris + Insight.                               |
+| Services | Services        | Personalized equine-assisted therapy for individuals, couples, families, and businesses.                |
+| Horses   | Meet the Horses | Meet the intuitive equine partners at Iris + Insight.                                                   |
+| Contact  | Contact Us      | Get in touch with Iris + Insight to learn more about our equine-assisted services.                      |
 
 ### 11.3 Additional SEO
+
 - Generate `sitemap.xml` at build time or manually
 - Add `robots.txt` allowing all crawlers
 - Ensure all images have descriptive `alt` text
@@ -679,12 +709,14 @@ done
 ## 13. RESPONSIVE BREAKPOINTS
 
 Follow Tailwind defaults:
+
 - `sm`: 640px (small mobile → large mobile)
 - `md`: 768px (tablet — hamburger → desktop nav transition)
 - `lg`: 1024px (small desktop)
 - `xl`: 1280px (large desktop — max-width container)
 
 ### Key Responsive Behaviors
+
 - **Nav:** Horizontal links → hamburger menu at `< md`
 - **Hero:** Side-by-side → stacked at `< md`
 - **Bio cards:** Side-by-side → stacked at `< lg`
@@ -710,11 +742,13 @@ Follow Tailwind defaults:
 ## 15. CONTENT NOTES
 
 ### First vs Third Person
+
 The client noted they still need to decide between first person ("we") and third person ("Iris + Insight"). The content in this spec uses a **mix** — the History page uses third person (as written by the client), while Services uses first person.
 
 **Agent instruction:** Use the text exactly as provided in this spec. Do not rewrite for voice consistency — the client will handle that in a later review pass.
 
 ### Content That Is Final (use as-is)
+
 - Mission statement
 - History page (all 5 blocks)
 - Kelsey's bio
@@ -723,6 +757,7 @@ The client noted they still need to decide between first person ("we") and third
 - Who We Serve + Focus Areas text
 
 ### Content That Is Placeholder (mark clearly in UI)
+
 - Sareena's bio
 - Horse descriptions (except Cat)
 - Contact information
@@ -737,6 +772,7 @@ The client noted they still need to decide between first person ("we") and third
 Execute in this exact sequence. Each phase must be complete before the next begins.
 
 ### Phase 1: Project Initialization
+
 1. Scaffold Vite + React + TypeScript project
 2. Install all dependencies (Tailwind, React Router, etc.)
 3. Configure `tailwind.config.ts` with full color palette and font families
@@ -747,6 +783,7 @@ Execute in this exact sequence. Each phase must be complete before the next begi
 8. Commit: "chore: project scaffolding"
 
 ### Phase 2: Routing & Layout Shell
+
 1. Create `navigation.ts` with all route definitions
 2. Create `Layout.tsx` with `<Outlet />`
 3. Build `Navbar.tsx` (desktop + mobile responsive)
@@ -757,6 +794,7 @@ Execute in this exact sequence. Each phase must be complete before the next begi
 8. Commit: "feat: routing and layout shell"
 
 ### Phase 3: Shared UI Components
+
 1. Build `SectionHeading.tsx`
 2. Build `Card.tsx`
 3. Build `ValueCard.tsx`
@@ -765,6 +803,7 @@ Execute in this exact sequence. Each phase must be complete before the next begi
 6. Commit: "feat: shared UI components"
 
 ### Phase 4: Home Page
+
 1. Build `Hero.tsx` section component
 2. Build `MissionBand.tsx` section component
 3. Build `LogoBar.tsx` section component
@@ -775,6 +814,7 @@ Execute in this exact sequence. Each phase must be complete before the next begi
 8. Commit: "feat: home page"
 
 ### Phase 5: Interior Pages (in order)
+
 1. Build `AboutUsPage.tsx` — bio cards, placeholders
 2. Build `HistoryPage.tsx` — narrative blocks with photos
 3. Build `AboutEALEAPPage.tsx` — content cards
@@ -784,6 +824,7 @@ Execute in this exact sequence. Each phase must be complete before the next begi
 7. Commit each page separately: "feat: {page name} page"
 
 ### Phase 6: Image Optimization & Polish
+
 1. Process all images (WebP, responsive sizes)
 2. Implement lazy loading
 3. Add all `alt` text
@@ -793,6 +834,7 @@ Execute in this exact sequence. Each phase must be complete before the next begi
 7. Commit: "feat: image optimization and polish"
 
 ### Phase 7: SEO & Accessibility
+
 1. Install and configure `react-helmet-async`
 2. Add meta tags to every page
 3. Add `sitemap.xml` and `robots.txt`
@@ -801,6 +843,7 @@ Execute in this exact sequence. Each phase must be complete before the next begi
 6. Commit: "feat: SEO and accessibility"
 
 ### Phase 8: Infrastructure & Deploy
+
 1. Provision Digital Ocean droplet
 2. Install Nginx, Node.js, Certbot
 3. Configure Nginx server blocks (both domains)

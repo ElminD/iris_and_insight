@@ -38,7 +38,10 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label htmlFor="name" className="block font-body text-sm font-medium text-brand-charcoal mb-1">
+        <label
+          htmlFor="name"
+          className="block font-body text-sm font-medium text-brand-charcoal mb-1"
+        >
           Name <span className="text-brand-teal">*</span>
         </label>
         <input
@@ -51,7 +54,10 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="block font-body text-sm font-medium text-brand-charcoal mb-1">
+        <label
+          htmlFor="email"
+          className="block font-body text-sm font-medium text-brand-charcoal mb-1"
+        >
           Email <span className="text-brand-teal">*</span>
         </label>
         <input
@@ -64,7 +70,10 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="phone" className="block font-body text-sm font-medium text-brand-charcoal mb-1">
+        <label
+          htmlFor="phone"
+          className="block font-body text-sm font-medium text-brand-charcoal mb-1"
+        >
           Phone <span className="text-brand-charcoal-muted font-normal">(optional)</span>
         </label>
         <input
@@ -76,7 +85,10 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block font-body text-sm font-medium text-brand-charcoal mb-1">
+        <label
+          htmlFor="message"
+          className="block font-body text-sm font-medium text-brand-charcoal mb-1"
+        >
           Message <span className="text-brand-teal">*</span>
         </label>
         <textarea

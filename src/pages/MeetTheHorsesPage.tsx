@@ -24,11 +24,11 @@ export default function MeetTheHorsesPage() {
           {/* Intro */}
           <Card className="mt-12">
             <p className="font-body text-base leading-relaxed text-brand-charcoal-muted">
-              The horses at Iris + Insight are more than animals — they are intuitive partners in the
-              therapeutic process. Their sensitivity, honesty, and calm presence help create powerful
-              moments of connection, self-awareness, and personal growth. Each horse in our herd
-              brings a unique spirit and plays an important role in supporting connection, healing,
-              and growth.
+              The horses at Iris + Insight are more than animals — they are intuitive partners in
+              the therapeutic process. Their sensitivity, honesty, and calm presence help create
+              powerful moments of connection, self-awareness, and personal growth. Each horse in our
+              herd brings a unique spirit and plays an important role in supporting connection,
+              healing, and growth.
             </p>
           </Card>
 

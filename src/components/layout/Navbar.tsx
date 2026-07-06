@@ -57,7 +57,13 @@ export default function Navbar() {
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
         >
-          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
             {menuOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -69,7 +75,11 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <nav id="mobile-menu" aria-label="Mobile navigation" className="md:hidden bg-brand-charcoal border-t border-white/10">
+        <nav
+          id="mobile-menu"
+          aria-label="Mobile navigation"
+          className="md:hidden bg-brand-charcoal border-t border-white/10"
+        >
           <ul className="flex flex-col px-6 py-4 gap-1">
             {routes.map((route) => (
               <li key={route.path}>
