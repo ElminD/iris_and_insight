@@ -41,13 +41,15 @@ export const services: Service[] = [
     name: 'Workshops',
     description: 'Group learning experiences',
     workshop: {
-      name: 'Herd Wisdom: Understanding Ourselves Through Horse Interaction',
-      date: 'July 24 2026 6pm to 7:30pm',
+      name: 'Equine-Assisted Learning & Therapy Workshop for Mental Health Professionals and Students',
+      date: 'October 9, 2026 4pm to 6pm',
       // Must point to an image in the public folder in the form /assets/path/to/image.jpg
-      image: '/assets/images/workshops/IrisAndInsight-July24-2026-Workshop-Flyer.jpg',
-      cutoff: new Date('2026-07-17T00:00:00-05:00'),
+      // Be warned, a slash (/) in the file name is converted to a colon (:).
+      image: '/assets/images/workshops/10-9-26-ProfessionalAndStudent.png',
+      // cutoff must be in the format of yyyy-mm-ddThh:mm:ss-hh:hh
+      cutoff: new Date('2026-10-01T00:00:00-05:00'),
       signupUrl:
-        'https://docs.google.com/forms/d/e/1FAIpQLSfvCM620HQTfeVwa2nsfCgwTn9fVWk48JVIVxRDlBqNW-FP6w/viewform',
+        'https://docs.google.com/forms/d/e/1FAIpQLSexGjv1HJSG5GziIynwDSdfdQZyUlZ2f7i4iMGclmFPF0Jgcg/viewform',
     },
   },
 ];
