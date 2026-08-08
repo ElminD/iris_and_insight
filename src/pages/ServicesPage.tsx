@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import SectionHeading from '../components/ui/SectionHeading';
 import Card from '../components/ui/Card';
-import { services, clientTags } from '../data/services';
+import { services, clientTags, type Workshop } from '../data/services';
 
 export default function ServicesPage() {
   const [openService, setOpenService] = useState<string | null>(null);
@@ -104,48 +104,9 @@ export default function ServicesPage() {
                       </span>
                     </div>
 
-                    {isOpen && (
-                      <div
-                        id={panelId}
-                        className="mt-5 pt-5 border-t border-brand-gray-light text-center"
-                      >
-                        {service.workshop && new Date() < service.workshop.cutoff && (
-                          <>
-                            <p>{service.workshop.name}</p>
-                            <p>{service.workshop.date}</p>
-                            <img
-                              src={service.workshop.image}
-                              alt="Workshop Flyer"
-                              fetchPriority="high"
-                              loading="eager"
-                              width={900}
-                              height={1200}
-                            />
-                            <a
-                              href={service.workshop.signupUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              className="inline-block bg-brand-teal text-brand-white font-body text-sm font-medium px-5 py-2 rounded-full hover:bg-brand-teal-dark transition-colors duration-150"
-                            >
-                              Register
-                            </a>
-                          </>
-                        )}
-                        <p className="font-body text-sm text-brand-charcoal-muted">
-                          Contact us directly to ask about availability, scheduling, and pricing.
-                        </p>
-                        <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-                          <Link
-                            to="/contact"
-                            onClick={(e) => e.stopPropagation()}
-                            className={`inline-block font-body text-sm font-medium px-5 py-2 rounded-full transition-colors duration-150 bg-brand-teal text-brand-white hover:bg-brand-teal-dark`}
-                          >
-                            Get in Touch
-                          </Link>
-                        </div>
-                      </div>
-                    )}
+                    {isOpen &&
+                      service.workshop != null &&
+                      makeWorkshopElement(panelId, service.workshop)}
                   </Card>
                 </button>
               );
@@ -161,5 +122,47 @@ export default function ServicesPage() {
         </div>
       </section>
     </>
+  );
+}
+
+function makeWorkshopElement(panelId: string, workshop: Workshop) {
+  return (
+    <div id={panelId} className="mt-5 pt-5 border-t border-brand-gray-light text-center">
+      {workshop && new Date() < workshop.cutoff && (
+        <>
+          <p>{workshop.name}</p>
+          <p>{workshop.date}</p>
+          <img
+            src={workshop.image}
+            alt="Workshop Flyer"
+            fetchPriority="high"
+            loading="eager"
+            width={900}
+            height={1200}
+          />
+          <a
+            href={workshop.signupUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-block bg-brand-teal text-brand-white font-body text-sm font-medium px-5 py-2 rounded-full hover:bg-brand-teal-dark transition-colors duration-150"
+          >
+            Register
+          </a>
+        </>
+      )}
+      <p className="font-body text-sm text-brand-charcoal-muted">
+        Contact us directly to ask about availability, scheduling, and pricing.
+      </p>
+      <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
+        <Link
+          to="/contact"
+          onClick={(e) => e.stopPropagation()}
+          className={`inline-block font-body text-sm font-medium px-5 py-2 rounded-full transition-colors duration-150 bg-brand-teal text-brand-white hover:bg-brand-teal-dark`}
+        >
+          Get in Touch
+        </Link>
+      </div>
+    </div>
   );
 }
