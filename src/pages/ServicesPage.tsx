@@ -105,8 +105,24 @@ export default function ServicesPage() {
                     </div>
 
                     {isOpen &&
-                      service.workshop != null &&
-                      makeWorkshopElement(panelId, service.workshop)}
+                      service.workshops != null &&
+                      makeWorkshops(panelId, service.workshops)}
+                    <p
+                      className="font-body text-sm text-brand-charcoal-muted"
+                      style={{ paddingTop: '40px' }}
+                    >
+                      Contact us directly to ask about availability, scheduling, and pricing.
+                    </p>
+
+                    <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
+                      <Link
+                        to="/contact"
+                        onClick={(e) => e.stopPropagation()}
+                        className={`inline-block font-body text-sm font-medium px-5 py-2 rounded-full transition-colors duration-150 bg-brand-teal text-brand-white hover:bg-brand-teal-dark`}
+                      >
+                        Get in Touch
+                      </Link>
+                    </div>
                   </Card>
                 </button>
               );
@@ -125,6 +141,17 @@ export default function ServicesPage() {
   );
 }
 
+// Takes in a list of Workshop elements and creates a div to hold them all.
+function makeWorkshops(panelId: string, workshops: Workshop[]) {
+  const children = [];
+  for (const workshop of workshops) {
+    children.push(makeWorkshopElement(panelId, workshop));
+  }
+
+  return <div className="container">{children}</div>;
+}
+
+// Takes in a single Workshop and makes the div element for its information.
 function makeWorkshopElement(panelId: string, workshop: Workshop) {
   return (
     <div id={panelId} className="mt-5 pt-5 border-t border-brand-gray-light text-center">
@@ -140,29 +167,19 @@ function makeWorkshopElement(panelId: string, workshop: Workshop) {
             width={900}
             height={1200}
           />
-          <a
-            href={workshop.signupUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="inline-block bg-brand-teal text-brand-white font-body text-sm font-medium px-5 py-2 rounded-full hover:bg-brand-teal-dark transition-colors duration-150"
-          >
-            Register
-          </a>
+          {workshop.signupUrl != null && (
+            <a
+              href={workshop.signupUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-block bg-brand-teal text-brand-white font-body text-sm font-medium px-5 py-2 rounded-full hover:bg-brand-teal-dark transition-colors duration-150"
+            >
+              Register
+            </a>
+          )}
         </>
       )}
-      <p className="font-body text-sm text-brand-charcoal-muted">
-        Contact us directly to ask about availability, scheduling, and pricing.
-      </p>
-      <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-        <Link
-          to="/contact"
-          onClick={(e) => e.stopPropagation()}
-          className={`inline-block font-body text-sm font-medium px-5 py-2 rounded-full transition-colors duration-150 bg-brand-teal text-brand-white hover:bg-brand-teal-dark`}
-        >
-          Get in Touch
-        </Link>
-      </div>
     </div>
   );
 }
