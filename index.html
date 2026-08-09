@@ -21,6 +21,23 @@
       rel="stylesheet"
     />
     <title>Iris + Insight</title>
+    <script>
+      // Restore the path encoded by 404.html after a GitHub Pages SPA redirect.
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const pValue = params.get('p');
+        if (pValue) {
+          params.delete('p');
+          const remaining = params.toString();
+          const newUrl =
+            window.location.origin +
+            decodeURIComponent(pValue) +
+            (remaining ? '?' + remaining : '') +
+            window.location.hash;
+          window.history.replaceState(null, '', newUrl);
+        }
+      })();
+    </script>
   </head>
   <body>
     <a href="#main-content" class="skip-to-content">Skip to content</a>

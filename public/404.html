@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Iris + Insight</title>
+    <script>
+      // GitHub Pages SPA redirect: encode the current path into the query string
+      // so the root index.html can restore it before React Router initializes.
+      const path = window.location.pathname;
+      const search = window.location.search;
+      const hash = window.location.hash;
+      const redirectUrl =
+        window.location.origin +
+        '/?p=' +
+        encodeURIComponent(path + search) +
+        hash;
+      window.location.replace(redirectUrl);
+    </script>
+  </head>
+  <body></body>
+</html>
