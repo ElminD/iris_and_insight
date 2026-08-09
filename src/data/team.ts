@@ -19,7 +19,7 @@ export const team: TeamMember[] = [
       '\n\n' +
       'In her spare time, you can find her petting animals, especially dogs and horses, spending time with her people, or finding a new adventure. She loves to travel and jumps at the opportunity to explore a new place, though she loves coming home just as much.',
     photo: kelseyImg,
-    imagePosition: 'center top',
+    imagePosition: 'center 15%',
     placeholder: false,
   },
   {
