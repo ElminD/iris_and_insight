@@ -1,8 +1,12 @@
+import * as React from 'react';
+
 export interface Service {
   icon: string;
   name: string;
   description: string;
+  extraDescription: React.JSX.Element;
   workshops?: Workshop[];
+  footer: string;
 }
 
 export interface Workshop {
@@ -25,25 +29,95 @@ export const services: Service[] = [
     icon: '🐴',
     name: 'EAL Sessions',
     description: 'Experiential learning with horses',
+    extraDescription: (
+      <div>
+        <p>
+          These are flexible learning opportunities, and we are happy to work with you to set up
+          something that works for you. They can help work toward a goal, improve insight, or
+          strengthen connections.
+        </p>
+        <p>
+          Examples <i>could</i> be:
+        </p>
+        <ul style={{ listStyle: 'disc' }}>
+          <li>
+            An individual wanting to improve body awareness, social-emotional awareness, or life
+            skills.
+          </li>
+          <li>
+            A family or other relationship wanting to gain insight into patterns, improve
+            communication, or improve connection.
+          </li>
+          <li>
+            A group of friends wanting to explore boundaries, trust, and communication with people
+            they know and are comfortable with.
+          </li>
+          <li>
+            A parent and child looking for a fun and different experience to make memories and
+            foster their relationship.
+          </li>
+          <li>A group of parents wanting to have a space to focus on themselves and just “be.”</li>
+        </ul>
+        <p>Cost:</p>
+        <p>Individual sessions (60 minute): $150</p>
+        <p>Couple/Family sessions (60 minute): $175</p>
+        <p>
+          *If you have a group you would like to do this with, we are happy to provide a group
+          discount.
+        </p>
+      </div>
+    ),
+    footer: 'Contact us directly to ask about availability, scheduling, and pricing.',
   },
   {
     icon: '💬',
     name: 'EAP Sessions',
     description: 'Equine-assisted psychotherapy',
+    extraDescription: (
+      <div>
+        <p>Ongoing therapy sessions utilizing the benefits of horses.</p>
+        <p>Cost:</p>
+        <p>Initial session: $250</p>
+        <p>Individual sessions (60 minute): $200</p>
+        <p>Couple/Family sessions (60 minute): $225</p>
+      </div>
+    ),
+    footer: 'Contact us directly to ask about availability and scheduling.',
   },
   {
     icon: '🏢',
     name: 'Corporate Partnerships',
     description: 'Team building & leadership development',
+    extraDescription: (
+      <div>
+        <p>
+          Looking for team building? A leadership retreat? A different and fun event? Contact us
+          today!
+        </p>
+      </div>
+    ),
+    footer: 'Contact us directly to ask about availability, scheduling, and pricing.',
   },
   {
     icon: '🎓',
     name: 'Workshops',
     description: 'Group learning experiences',
+    extraDescription: (
+      <div>
+        <p>
+          A group setting with different themes. Keep an eye on our social media or website for
+          different opportunities.
+        </p>
+        <p>
+          *We can also create workshops for special groups. Contact us if you have a group you would
+          like to do this with for a discounted rate.
+        </p>
+      </div>
+    ),
     workshops: [
       {
         name: 'Equine-Assisted Learning & Therapy Workshop for Mental Health Professionals and Students',
-        date: 'October 9, 2026 4pm to 6pm',
+        date: 'October 9, 2026 4PM to 6PM',
         // Must point to an image in the public folder in the form /assets/path/to/image.jpg
         // Be warned, a slash (/) in the file name is converted to a colon (:).
         image: '/assets/images/workshops/10-9-26-ProfessionalAndStudent.png',
@@ -54,7 +128,7 @@ export const services: Service[] = [
       },
       {
         name: "You're Invited to Our Open House!",
-        date: 'October 9, 2026 6:30pm to 8pm',
+        date: 'October 9, 2026 6:30PM to 8PM',
         // Must point to an image in the public folder in the form /assets/path/to/image.jpg
         // Be warned, a slash (/) in the file name is converted to a colon (:).
         image: '/assets/images/workshops/10-9-26-OpenHouse.png',
@@ -63,7 +137,7 @@ export const services: Service[] = [
       },
       {
         name: 'Stronger Together: Building Connection Through Horses',
-        date: 'October 15, 2026 6pm to 7:30pm',
+        date: 'October 15, 2026 6PM to 7:30PM',
         // Must point to an image in the public folder in the form /assets/path/to/image.jpg
         // Be warned, a slash (/) in the file name is converted to a colon (:).
         image: '/assets/images/workshops/10-15-26-Couples.png',
@@ -74,7 +148,7 @@ export const services: Service[] = [
       },
       {
         name: "The Seasons Within Women's Workshop",
-        date: 'October 16, 2026 3pm to 4:30pm',
+        date: 'October 16, 2026 3PM to 4:30PM',
         // Must point to an image in the public folder in the form /assets/path/to/image.jpg
         // Be warned, a slash (/) in the file name is converted to a colon (:).
         image: '/assets/images/workshops/10-16-26-TheSeasonsWomensWorkshop.png',
@@ -84,6 +158,7 @@ export const services: Service[] = [
           'https://docs.google.com/forms/d/e/1FAIpQLSd-sCQOkF89OxXZBQAnWyiXzY4Eie2gIenQAFjn46JdWr1WmA/viewform',
       },
     ],
+    footer: 'Contact us directly to ask about availability, scheduling, and pricing.',
   },
 ];
 

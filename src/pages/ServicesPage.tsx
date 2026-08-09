@@ -103,15 +103,20 @@ export default function ServicesPage() {
                         {isOpen ? '−' : '+'}
                       </span>
                     </div>
-
+                    {isOpen && (
+                      // Apply the extra description
+                      <div style={{ paddingTop: '20px' }}>{service.extraDescription}</div>
+                    )}
                     {isOpen &&
+                      // Make the workshops for this service (if they exist)
                       service.workshops != null &&
                       makeWorkshops(panelId, service.workshops)}
                     <p
+                      // Make the footer that each service has.
                       className="font-body text-sm text-brand-charcoal-muted"
                       style={{ paddingTop: '40px' }}
                     >
-                      Contact us directly to ask about availability, scheduling, and pricing.
+                      {service.footer},
                     </p>
 
                     <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
