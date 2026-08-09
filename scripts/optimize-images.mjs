@@ -13,6 +13,7 @@ const configs = [
   { input: 'horses/Grey.jpg', width: 800, quality: 80 },
   { input: 'horses/Boomer_JR.jpg', width: 800, quality: 80 },
   { input: 'horses/Bodie the Goatie.jpg', width: 800, quality: 80 },
+  { input: 'horses/TootsieAndTrigger.jpg', width: 800, quality: 80 },
   { input: 'people/Kelsey Finch.jpg', width: 300, quality: 85 },
   { input: 'people/Sareena.jpg', width: 300, quality: 85 },
   { input: 'Logo.png', width: null, quality: 90 },

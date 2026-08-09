@@ -58,8 +58,9 @@ export default function MeetTheHorsesPage() {
                   <ImageCard
                     imageSrc={animal.photo}
                     imageAlt={`${animal.name} at Iris + Insight`}
+                    imagePosition={animal.imagePosition}
                     title={animal.name}
-                    description={animal.description}
+                    description={animal.description || undefined}
                   />
                 </div>
               ))}
