@@ -164,6 +164,7 @@ function makeWorkshopElement(panelId: string, workshop: Workshop) {
         <>
           <p>{workshop.name}</p>
           <p>{workshop.date}</p>
+          {workshop.dateNotes != null && <p>{workshop.dateNotes}</p>}
           <img
             src={workshop.image}
             alt="Workshop Flyer"

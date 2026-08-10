@@ -15,6 +15,7 @@ export interface Workshop {
   // The date that will be shown for the workshop.
   // Does not have to be a "literal" date, any string works.
   date: string;
+  dateNotes?: string;
   // Must point to an image in the public folder in the form /assets/path/to/image.jpg
   image: string;
   // The date the workshop should no longer shop up on the website.
@@ -138,6 +139,7 @@ export const services: Service[] = [
       {
         name: 'Stronger Together: Building Connection Through Horses',
         date: 'October 15, 2026 6PM to 7:30PM',
+        dateNotes: '**Price per couple**',
         // Must point to an image in the public folder in the form /assets/path/to/image.jpg
         // Be warned, a slash (/) in the file name is converted to a colon (:).
         image: '/assets/images/workshops/10-15-26-Couples.png',
