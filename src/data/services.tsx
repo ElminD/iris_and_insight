@@ -60,8 +60,10 @@ export const services: Service[] = [
           <li>A group of parents wanting to have a space to focus on themselves and just “be.”</li>
         </ul>
         <p>Cost:</p>
-        <p>Individual sessions (60 minute): $150</p>
-        <p>Couple/Family sessions (60 minute): $175</p>
+        <p>Individual sessions (60 minutes): $150</p>
+        <p>Individual sessions (90 minutes): $175</p>
+        <p>Couple/Family sessions (60 minutes): $175</p>
+        <p>Couple/Family sessions (90 minutes): $200</p>
         <p>
           *If you have a group you would like to do this with, we are happy to provide a group
           discount.
@@ -79,8 +81,10 @@ export const services: Service[] = [
         <p>Ongoing therapy sessions utilizing the benefits of horses.</p>
         <p>Cost:</p>
         <p>Initial session: $250</p>
-        <p>Individual sessions (60 minute): $200</p>
-        <p>Couple/Family sessions (60 minute): $225</p>
+        <p>Individual sessions (60 minutes): $200</p>
+        <p>Individual sessions (90 minutes): $225</p>
+        <p>Couple/Family sessions (60 minutes): $225</p>
+        <p>Couple/Family sessions (90 minutes): $250</p>
       </div>
     ),
     footer: 'Contact us directly to ask about availability and scheduling.',
